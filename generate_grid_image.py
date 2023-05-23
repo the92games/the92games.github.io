@@ -15,8 +15,8 @@ num_rows = len(lines)
 num_cols = len(lines[0].split())
 
 # Set the size of the image (adjust as needed)
-image_width = 800
-image_height = 600
+image_width = 480
+image_height = 360
 
 # Calculate the size of each cell in the grid
 cell_width = image_width // num_cols

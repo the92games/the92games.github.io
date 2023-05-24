@@ -3,6 +3,10 @@ function convertButtonClick() {
   const fileInput = document.getElementById('fileInput');
   const file = fileInput.files[0];
 
+  // Show the loading indicator
+  const loadingIndicator = document.querySelector('.loading-indicator');
+  loadingIndicator.style.display = 'block';
+
   // Read the file content
   const reader = new FileReader();
   reader.onload = function(e) {
@@ -18,6 +22,9 @@ function convertButtonClick() {
     const downloadLink = document.getElementById('downloadLink');
     downloadLink.href = dataURL;
     downloadLink.style.display = 'block';
+
+    // Hide the loading indicator
+    loadingIndicator.style.display = 'none';
   };
   reader.readAsText(file);
 }

@@ -8,6 +8,9 @@ function convertButtonClick() {
   reader.onload = function (e) {
     const coordinateText = e.target.result;
 
+    // Show status indicator
+    setStatus('Converting...');
+
     // Perform the coordinate list to image conversion
     const imageData = convertCoordinateListToImage(coordinateText);
 
@@ -20,15 +23,12 @@ function convertButtonClick() {
     downloadLink.style.display = 'block';
 
     // Trigger automatic download
-    triggerDownload();
+    downloadLink.click();
+
+    // Update status indicator
+    setStatus('Conversion completed');
   };
   reader.readAsText(file);
-}
-
-// Function to automatically trigger download
-function triggerDownload() {
-  const downloadLink = document.getElementById('downloadLink');
-  downloadLink.click();
 }
 
 // Function to set the status message

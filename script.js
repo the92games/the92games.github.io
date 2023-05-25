@@ -31,12 +31,16 @@ function convertButtonClick() {
   reader.readAsText(file);
 }
 
-// Function to set the status message
-function setStatus(message) {
+// Function to set the status message and trigger automatic download
+function setStatus(message, dataURL) {
   const statusElement = document.getElementById('status');
   statusElement.textContent = message;
-}
 
+  const downloadLink = document.getElementById('downloadLink');
+  downloadLink.href = dataURL;
+  downloadLink.style.display = 'block';
+  downloadLink.click();
+}
 // Function to convert coordinate list to image
 function convertCoordinateListToImage(coordinateText) {
   const lines = coordinateText.trim().split('\n');

@@ -2,6 +2,11 @@
 <html>
 <head>
   <title>Coordinate List to Image Converter</title>
+  <style>
+    #conversionIndicator {
+      display: none;
+    }
+  </style>
 </head>
 <body>
   <h1>Coordinate List to Image Converter</h1>
@@ -15,18 +20,10 @@
   <!-- Status indicator -->
   <div id="status"></div>
 
+  <!-- Conversion indicator -->
+  <div id="conversionIndicator">Converting...</div>
+
   <!-- Add JavaScript code here -->
   <script src="script.js"></script>
-  <script>
-    // Function to automatically trigger download
-    function triggerDownload() {
-      const downloadLink = document.getElementById('downloadLink');
-      downloadLink.click();
-    }
-
-    // Attach event listener to the download link
-    const downloadLink = document.getElementById('downloadLink');
-    downloadLink.addEventListener('click', triggerDownload);
-  </script>
 </body>
 </html>

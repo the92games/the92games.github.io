@@ -15,10 +15,18 @@
   <!-- Status indicator -->
   <div id="status"></div>
 
-  <!-- Download link -->
-  <a id="downloadLink" style="display: none;"></a>
-
   <!-- Add JavaScript code here -->
   <script src="script.js"></script>
+  <script>
+    // Function to automatically trigger download
+    function triggerDownload() {
+      const downloadLink = document.getElementById('downloadLink');
+      downloadLink.click();
+    }
+
+    // Attach event listener to the download link
+    const downloadLink = document.getElementById('downloadLink');
+    downloadLink.addEventListener('click', triggerDownload);
+  </script>
 </body>
 </html>

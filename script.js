@@ -8,9 +8,6 @@ function convertButtonClick() {
   reader.onload = function (e) {
     const coordinateText = e.target.result;
 
-    // Show status indicator
-    setStatus('Converting...');
-
     // Perform the coordinate list to image conversion
     const imageData = convertCoordinateListToImage(coordinateText);
 
@@ -23,24 +20,23 @@ function convertButtonClick() {
     downloadLink.style.display = 'block';
 
     // Trigger automatic download
-    downloadLink.click();
-
-    // Update status indicator
-    setStatus('Conversion completed');
+    triggerDownload();
   };
   reader.readAsText(file);
 }
 
-// Function to set the status message and trigger automatic download
-function setStatus(message, dataURL) {
-  const statusElement = document.getElementById('status');
-  statusElement.textContent = message;
-
+// Function to automatically trigger download
+function triggerDownload() {
   const downloadLink = document.getElementById('downloadLink');
-  downloadLink.href = dataURL;
-  downloadLink.style.display = 'block';
   downloadLink.click();
 }
+
+// Function to set the status message
+function setStatus(message) {
+  const statusElement = document.getElementById('status');
+  statusElement.textContent = message;
+}
+
 // Function to convert coordinate list to image
 function convertCoordinateListToImage(coordinateText) {
   const lines = coordinateText.trim().split('\n');
